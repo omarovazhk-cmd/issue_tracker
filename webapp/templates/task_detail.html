@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>{{ task.summary }}</h1>
+        <p><strong>Тип:</strong> {{ task.task_type }}</p>
+        <p><strong>Статус:</strong> {{ task.status }}</p>
+        <p><strong>Описание:</strong></p>
+        <p>{{ task.description }}</p>
+
+        <a class="btn btn-secondary" href="{% url 'task_edit' task.pk %}">Редактировать</a>
+        <a class="btn btn-danger" href="{% url 'task_delete' task.pk %}">Удалить</a>
+        <a class="btn btn-link" href="{% url 'task_list' %}">Назад к списку</a>
+    </div>
+{% endblock %}
