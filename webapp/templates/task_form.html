@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>{{ title }}</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            <div class="mb-3">
+                {{ form.summary.label_tag }}
+                {{ form.summary }}
+                {{ form.summary.errors }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.description.label_tag }}
+                {{ form.description }}
+                {{ form.description.errors }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.status.label_tag }}
+                {{ form.status }}
+                {{ form.status.errors }}
+            </div>
+
+            <div class="mb-3">
+                {{ form.task_type.label_tag }}
+                {{ form.task_type }}
+                {{ form.task_type.errors }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <a href="{% url 'task_list' %}" class="btn btn-link">Отмена</a>
+        </form>
+    </div>
+{% endblock %}
