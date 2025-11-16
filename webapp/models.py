@@ -26,6 +26,8 @@ class Task(models.Model):
     task_type = models.ManyToManyField(TaskType, verbose_name="Типы задачи", blank=True)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Создано")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Обновлено")
+    due_date = models.DateField(verbose_name='Дата выполнения', blank=True, null=True,)
+
 
     def __str__(self):
         return self.summary
